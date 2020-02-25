@@ -1,0 +1,16 @@
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame.csprojAssemblyReference.cache
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\PresentationLayer\GameSessionView.g.cs
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\App.g.cs
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame_MarkupCompile.cache
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame_MarkupCompile.lref
+E:\S1\TBQuestGame\TBQuestGame\bin\Debug\TBQuestGame.exe.config
+E:\S1\TBQuestGame\TBQuestGame\bin\Debug\TBQuestGame.exe
+E:\S1\TBQuestGame\TBQuestGame\bin\Debug\TBQuestGame.pdb
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\PresentationLayer\GameSessionView.baml
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame.g.resources
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame.Properties.Resources.resources
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame.csproj.GenerateResource.cache
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame.exe
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\TBQuestGame.pdb
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\PresentationLayer\PlayerSetupView.g.cs
+E:\S1\TBQuestGame\TBQuestGame\obj\Debug\PresentationLayer\PlayerSetupView.baml
