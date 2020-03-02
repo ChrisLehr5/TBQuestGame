@@ -1,0 +1,151 @@
+﻿<Window x:Class="TBQuestGame.PresentationLayer.PlayerSetupView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TBQuestGame.PresentationLayer"
+        mc:Ignorable="d"        
+        Background="Teal"
+        Width="400"
+        Height="400"
+        WindowStyle="SingleBorderWindow">
+    <Window.Resources>
+        <Style x:Key="BorderStyle" TargetType="Border">
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        <Style x:Key="MainPanelLabelStyle" TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Lucida Console"/>
+        </Style>
+        <Style x:Key="MainPanelButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="10,0,10,0"/>
+            <Setter Property="Width" Value="75"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Background" Value="Silver"/>
+            <Setter Property="Foreground" Value="MidnightBlue"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid 
+                            Width="{TemplateBinding Width}" 
+                            Height="{TemplateBinding Height}" 
+                            ClipToBounds="True">
+                            <Rectangle 
+                                x:Name="innerRectangle" 
+                                HorizontalAlignment="Stretch" 
+                                VerticalAlignment="Stretch" 
+                                Fill="{TemplateBinding Background}" 
+                                RadiusX="5" 
+                                RadiusY="5" />
+                            <!-- Present Content (text) of the button. -->
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter 
+                                    x:Name="myContentPresenter" 
+                                    Margin="2" 
+                                    HorizontalAlignment="Center"
+                                    Content="{TemplateBinding  Content}" 
+                                    TextBlock.Foreground="Black" />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="LightSteelBlue" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MainPanelTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="MidnightBlue"/>
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="20"/>
+            <Setter Property="Padding" Value="3,0,0,0"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Border 
+                            Background="{TemplateBinding Background}"   
+                            x:Name="Bd" 
+                            BorderBrush="Black"  
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="MainPanelComboBoxStyle" TargetType="ComboBox">
+            <Setter Property="Background" Value="WhiteSmoke"/>
+            <Setter Property="Width" Value="100"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border
+            Margin="10"
+            Style="{DynamicResource BorderStyle}">
+            <StackPanel
+            Grid.Column="0"
+            Orientation="Vertical"
+            HorizontalAlignment="Center">
+                <Label
+                    Content="Character Creation" 
+                    HorizontalAlignment="Center"
+                    Margin="20"
+                    FontSize="20"
+                    Style="{StaticResource MainPanelLabelStyle}"/>
+                <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                    <Label Content="Name" Style="{StaticResource MainPanelLabelStyle}"/>
+                    <TextBox Name="NameTextBox" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                </StackPanel>
+                <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                    <Label Content="Trait" Style="{StaticResource MainPanelLabelStyle}"/>
+                    <ComboBox 
+                    Name="RaceComboBox"
+                    SelectedIndex="0"
+                    Style="{StaticResource MainPanelComboBoxStyle}"/>
+                </StackPanel>
+                <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                    <Label Content="Age" Style="{StaticResource MainPanelLabelStyle}"/>
+                    <TextBox Name="AgeTextBox" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                </StackPanel>
+                <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Right">
+                    <Label Content="Job Title" Style="{StaticResource MainPanelLabelStyle}"/>
+                    <ComboBox 
+                    Name="JobTitleComboBox"
+                    SelectedIndex="0"
+                    Style="{StaticResource MainPanelComboBoxStyle}"/>
+                </StackPanel>
+                <Button
+                    Name="OkButton"
+                    Margin="20"
+                    Content="OK"
+                    Style="{StaticResource MainPanelButtonStyle}"
+                    Click="OkButton_Click"/>
+                <TextBlock 
+                    Name="ErrorMessageTextBlock"
+                    Background="WhiteSmoke"
+                    Foreground="Red"/>
+            </StackPanel>
+
+        </Border>
+
+    </Grid>
+</Window>
