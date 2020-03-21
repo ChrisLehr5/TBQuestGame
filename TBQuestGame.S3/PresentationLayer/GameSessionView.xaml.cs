@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -75,6 +76,20 @@ namespace TBQuestGame.PresentationLayer
             if (InventoryDataGrid.SelectedItem != null)
             {
                 _gameSessionViewModel.OnUseGameItem();
+            }
+        }
+
+        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            string writerfile = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "WriteFile.txt");
+            using (StreamWriter writer = new StreamWriter(writerfile))
+            {
+                writer.WriteLine(textBox1.Text);
+                writer.WriteLine(textBox2.Text);
+                writer.WriteLine(textBox3.Text);
+                writer.WriteLine(textBox4.Text);
+
             }
         }
     }

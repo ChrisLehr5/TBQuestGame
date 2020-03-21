@@ -7,6 +7,9 @@ using TBQuestGame.Models;
 using System.Windows.Threading;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.IO;
+using Microsoft.Win32;
+using System.Windows.Controls;
 
 namespace TBQuestGame.PresentationLayer
 {
@@ -584,6 +587,17 @@ namespace TBQuestGame.PresentationLayer
         {
             Environment.Exit(0);
         }
+
+
+        //Cannot find the textBox binding??
+        //private void GameSave()
+        //{
+        //  string writerfile = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "WriteFile.txt");
+        //using (StreamWriter writer = new StreamWriter(writerfile))
+        //{
+        //  writer.WriteLine(textBox1.Text);
+        //}
+        //}            
 
         #endregion
 

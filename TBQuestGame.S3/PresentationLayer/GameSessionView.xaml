@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TBQuestGame.PresentationLayer"
         mc:Ignorable="d"
-        Background="MidnightBlue"
+        Background="Gray"
         Width="900"
         Height="600"
         WindowStartupLocation="CenterScreen"
@@ -122,6 +122,9 @@
                             Content="{Binding MissionTimeDisplay}" 
                             HorizontalAlignment="Center"
                             Style="{StaticResource MainPanelLabelStyle}"/>
+                        <StackPanel
+                            Orientation="Vertical"
+                            Height="50"  ></StackPanel>
                         <Label 
                             Content="Current Location" 
                             HorizontalAlignment="Center"
@@ -134,11 +137,14 @@
                             HorizontalContentAlignment="Center"
                             Background="WhiteSmoke"/>
 
-                        <Label 
-                            Content="Travel"
+                        <Label                            
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Style="{StaticResource MainPanelLabelStyle}"/>
+                        <StackPanel
+                            Orientation="Vertical"
+                            Height="100"  ></StackPanel>
+
                         <StackPanel
                             Orientation="Vertical">
                             <StackPanel
@@ -233,7 +239,7 @@
                                     Background="WhiteSmoke"
                                     Style="{StaticResource BorderStyle}">
                                     <TextBox
-                                        Height="75"
+                                        Height="100"
                                         Width="350"
                                         Margin="10"
                                         Background="WhiteSmoke"
@@ -251,7 +257,7 @@
                                         x:Name="ItemsInfoTabItem">
                                         <DataGrid 
                                             x:Name="LocationItemsDataGrid"
-                                            Height="150"
+                                            Height="100"
                                             ItemsSource="{Binding CurrentLocation.GameItems}" 
                                             SelectedItem="{Binding CurrentGameItem}"
                                             AutoGenerateColumns="False"
@@ -277,10 +283,6 @@
                         <StackPanel
                             Grid.Row="1"
                             Orientation="Horizontal">
-                            <Button 
-                                Content="Pick Up" 
-                                Style="{StaticResource MainPanelButtonStyle}" 
-                                Click="PickUpButton_Click"/>
                         </StackPanel>
                     </Grid>
                 </Border>
@@ -296,6 +298,14 @@
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Style="{StaticResource MainPanelLabelStyle}"/>
+                        <StackPanel
+                            Orientation="Vertical"
+                            Height="50"  >
+                            <Button 
+                                Content="Pick Up" 
+                                Style="{StaticResource MainPanelButtonStyle}" 
+                                Click="PickUpButton_Click"/>
+                        </StackPanel>
                         <DataGrid 
                             x:Name="InventoryDataGrid"
                             ItemsSource="{Binding Player.Inventory}"
@@ -324,6 +334,19 @@
                                 Style="{StaticResource MainPanelButtonStyle}" 
                                 Click="UseButton_Click"/>
                         </StackPanel>
+                        <StackPanel
+                            Orientation="Vertical"
+                            Height="50"  >
+                        </StackPanel>
+                        <StackPanel
+                            Orientation="Vertical"
+                            Height="50"  >
+                            <Button 
+                                Content="Save Game" 
+                                Style="{StaticResource MainPanelButtonStyle}" 
+                                Click="SaveButton_Click"/>
+                        </StackPanel>
+
                     </StackPanel>
                 </Border>
                 <Border
@@ -341,45 +364,48 @@
                             Grid.Column="0"
                             Orientation="Vertical">
                             <StackPanel
+                            Orientation="Vertical"
+                            Height="30"  ></StackPanel>
+                            <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                                <TextBox Text="{Binding Player.Name}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                <TextBox Text="{Binding Player.Name}" Name="textBox1" Style="{StaticResource MainPanelTextBoxStyle}"/>
                                 <Label Content="Name" Style="{StaticResource MainPanelLabelStyle}"/>
                             </StackPanel>
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                                <TextBox Text="{Binding Player.Race}" Style="{StaticResource MainPanelTextBoxStyle}"/>
-                                <Label Content="Race" Style="{StaticResource MainPanelLabelStyle}"/>
+                                <TextBox Text="{Binding Player.Trait}" Name="textBox2" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                <Label Content="Trait" Style="{StaticResource MainPanelLabelStyle}"/>
                             </StackPanel>
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                                <TextBox Text="{Binding Player.Age}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                <TextBox Text="{Binding Player.Age}" Name="textBox3" Style="{StaticResource MainPanelTextBoxStyle}"/>
                                 <Label Content="Age" Style="{StaticResource MainPanelLabelStyle}"/>
                             </StackPanel>
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                                <TextBox Text="{Binding Player.JobTitle}" Style="{StaticResource MainPanelTextBoxStyle}"/>
-                                <Label Content="Job Title" Style="{StaticResource MainPanelLabelStyle}"/>
+                                <TextBox Text="{Binding Player.PlayStyle}" Name="textBox4" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                <Label Content="Play Style" Style="{StaticResource MainPanelLabelStyle}"/>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel
                             Grid.Column="1"
                             Orientation="Vertical">
                             <Label 
-                                Content="Mission Control Communications"
+                                Content="Log Book"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center"
                                 Style="{StaticResource MainPanelLabelStyle}"/>
                             <Border
-                            Margin="10"
+                            Margin="1"
                             Padding="0"
                             Background="WhiteSmoke"
                             Style="{StaticResource BorderStyle}">
                                 <TextBox
-                                Height="50"
+                                Height="70"
                                 Width="auto"
                                 Margin="10"
                                 Background="WhiteSmoke"
@@ -397,21 +423,24 @@
                             Grid.Column="2"
                             Orientation="Vertical">
                             <StackPanel
+                            Orientation="Vertical"
+                            Height="35"  ></StackPanel>
+                            <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-                                <Label Content="Health" Style="{StaticResource MainPanelLabelStyle}"/>
+                                <Label Content="Health" Name="textBox5" Style="{StaticResource MainPanelLabelStyle}"/>
                                 <TextBox Text="{Binding Player.Health}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                             </StackPanel>
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-                                <Label Content="Lives" Style="{StaticResource MainPanelLabelStyle}"/>
+                                <Label Content="Lives" Name="textBox6" Style="{StaticResource MainPanelLabelStyle}"/>
                                 <TextBox Text="{Binding Player.Lives}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                             </StackPanel>
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Right">
-                                <Label Content="Experience" Style="{StaticResource MainPanelLabelStyle}"/>
+                                <Label Content="Experience" Name="textBox7" Style="{StaticResource MainPanelLabelStyle}"/>
                                 <TextBox Text="{Binding Player.ExperiencePoints}" Style="{StaticResource MainPanelTextBoxStyle}"/>
                             </StackPanel>
                         </StackPanel>

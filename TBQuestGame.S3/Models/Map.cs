@@ -19,7 +19,7 @@ namespace TBQuestGame.Models
         #endregion
 
         #region PROPERTIES
-                       
+
 
         public Location[,] MapLocations
         {
@@ -57,6 +57,12 @@ namespace TBQuestGame.Models
         #endregion
 
         #region METHODS
+
+        /// <summary>
+        /// open the location controlled by a key
+        /// </summary>
+        /// <param name="keyId"></param>
+        /// <returns>user message regarding success of attempt</returns>
         public string OpenLocationsByKey(int keyId)
         {
             string message = "The key did nothing.";
@@ -75,7 +81,6 @@ namespace TBQuestGame.Models
                     }
                 }
             }
-
             return message;
         }
 

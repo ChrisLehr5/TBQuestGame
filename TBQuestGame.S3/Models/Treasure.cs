@@ -9,6 +9,7 @@ namespace TBQuestGame.Models
 {
     public class Treasure : GameItem
     {
+
         public enum TreasureType
         {
             Necklace,

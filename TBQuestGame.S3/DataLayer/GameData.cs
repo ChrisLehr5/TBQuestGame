@@ -15,10 +15,10 @@ namespace TBQuestGame.DataLayer
             return new Player()
             {
                 Id = 1,
-                Name = "Bonzo",
-                Age = 43,
+                Name = "Violet",
+                Age = 13,
                 PlayStyle = Player.PlayThroughDifficulty.Casual,
-                Trait = Character.TraitType.Strength,
+                Trait = Character.TraitType.Charisma,
                 Health = 100,
                 Lives = 3,
                 ExperiencePoints = 0,
@@ -61,8 +61,7 @@ namespace TBQuestGame.DataLayer
                 Message = "",
                 GameItems = new ObservableCollection<GameItem>()
                 {
-                    GameItemById(3001),
-                    GameItemById(4001),
+                    GameItemById(2001),
                     GameItemById(4002)
                 }
             };
@@ -77,8 +76,8 @@ namespace TBQuestGame.DataLayer
                 "Home from school, you wonder where your aunt is.",
                 Accessible = true,
                 ModifiyExperiencePoints = 10,
-                Message = "\tYou expected to be greeted at the gate as usual by your Aunt, whom lives in the Manor." +
-                "It's very unusual that nobody is in sight- leaving you the options of standing here wondering " +
+                Message = "You expected to be greeted at the gate as usual by your Aunt, whom lives in the Manor." +
+                " It's very unusual that nobody is in sight- leaving you the options of standing here wondering " +
                 "or going inside to see what is going on... "
             };
             gameMap.MapLocations[1, 1] = new Location()
@@ -92,7 +91,7 @@ namespace TBQuestGame.DataLayer
                 ModifiyExperiencePoints = 10
             };
 
-            gameMap.MapLocations[0, 1] = new Location()
+            gameMap.MapLocations[0, 2] = new Location()
             {
                 Id = 3,
                 Name = "Parlor",
@@ -101,7 +100,14 @@ namespace TBQuestGame.DataLayer
                 "on the small desk between the chairs.",
                 Accessible = false,
                 RequiredKeyId = 4001,
-                ModifiyExperiencePoints = 10
+                ModifiyExperiencePoints = 10,
+                Message = "The air in this room is musty, and the chairs look overstuffed and uncomfortable." +
+                "You don't think your Aunt has ever used this room. She is much too informal!",
+                GameItems = new ObservableCollection<GameItem>()
+                {
+                    GameItemById(2003),
+                    GameItemById(3001)
+                }
             };
 
             gameMap.MapLocations[2, 1] = new Location()
@@ -114,7 +120,12 @@ namespace TBQuestGame.DataLayer
                 Accessible = true,
                 ModifiyExperiencePoints = 10,
                 Message = "That Parrot is a noisy gossip but it has never liked you. There may be something around to trick it- " +
-                "maybe if it thinks you are someone else it'll give you a clue..."
+                "maybe if it thinks you are someone else it'll give you a clue...",
+                GameItems = new ObservableCollection<GameItem>()
+                {
+                    GameItemById(4001)
+
+                }
             };
 
             gameMap.MapLocations[3, 1] = new Location()
@@ -125,8 +136,9 @@ namespace TBQuestGame.DataLayer
                 "A large water feature dominates the center of the room, of which inside stands a statue of a woman pouring water from a pitcher." +
                 "A necklace hangs around her neck, sparkling from the samp mist.",
                 Accessible = false,
+                RequiredKeyId = 4002,
+                RequiredExperiencePoints = 40,
                 ModifiyExperiencePoints = 20,
-                ModifyHealth = 50,
                 Message = "Something about that necklace looks familiar..."
             };
             gameMap.MapLocations[1, 2] = new Location()
@@ -149,19 +161,31 @@ namespace TBQuestGame.DataLayer
                 Message = "You know there is a servants entrance to the upstairs, but which way?"
             };
 
+
+            gameMap.MapLocations[2, 3] = new Location()
+            {
+                Id = 8,
+                Name = "Study",
+                Description = "The sturdy door is locked.",
+                Accessible = false,
+                ModifiyExperiencePoints = 10,
+                Message = "There is something odd about this door.",
+                RequiredExperiencePoints = 400
+            };
+
             return gameMap;
         }
         public static List<GameItem> StandardGameItems()
         {
             return new List<GameItem>()
             {
-                new Key(1002, "Phaser", 250, "Phasers are common and versatile phased array pulsed energy projectile weapons.", 10, "This looks like it opens something.", Key.UseActionType.OPENLOCATION),
+               new Treasure(1002, "Whistle", 10, Treasure.TreasureType.Whistle, "Your favorite whistle. A present from your Aunt, your teachers at school complained it would deafen your fellow students.", 5),
                 new Treasure(2001, "Gold Coin", 10, Treasure.TreasureType.Mirror, "24 karat gold coin", 1),
                 new Treasure(2002, "Small Diamond", 50, Treasure.TreasureType.Necklace, "A small pea-sized diamond of various colors.", 1),
-                new Treasure(2003, "Kalzonian Manuscript", 10, Treasure.TreasureType.Whistle, "Reportedly stolen during the Zantorian raids of of the 4th dynasty, it is said to contain information about early galactic technologies.", 5),
-                new Potion(3001, "Distilled Baladorian Lion Mucus", 5, 40, 1, "Rare potion due to the dangers of procurement. Add 40 points of health.", 5),
-                new Key(4001, "Crystal Key", 5, "Conjured by the Forest Wizard, it opens many doors.", 5, "You have opened the Epitoria's Reading Room.", Key.UseActionType.OPENLOCATION),
-                new Key(4002, "Stick of Adol", 5, "Long polished wooden rod with sliding silver ribbons..", 5, "Sliding the silver ribbons, you feel a sharp pain in your left temple and quickly die.", Key.UseActionType.KILLPLAYER)
+                new Treasure(2003, "Silver Hand Mirror", 50, Treasure.TreasureType.Mirror, "An ornate silver backed hand mirror. Someone vain is missing this item.", 1),
+                new Potion(3001, "Cinnamon Candy", 5, 40, 1, "Your favorite type of candy- sure to perk you up!", 5),
+                new Key(4001, "Parlor Key", 5, "Brassy and well worn, this is the key to the formal parlor.", 5, "You have opened the Parlor.", Key.UseActionType.OPENLOCATION),
+                new Key(4002, "Bent Key", 5, "This must have fallen from someones pocket...", 5, "The key breaks completely, jabbing you in the palm. A strange tingle passes up your arm, as your vision fades...", Key.UseActionType.KILLPLAYER)
             };
         }
     }
