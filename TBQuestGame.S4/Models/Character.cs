@@ -85,7 +85,7 @@ namespace TBQuestGame.Models
 
         public virtual string DefaultGreeting()
         {
-            return $"Hello, my name is {_name} and I am a {_trait}.";
+            return $"Hello, my name is {_name} and I excel at {_trait}.";
         }
 
         #endregion

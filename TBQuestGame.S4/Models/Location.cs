@@ -23,6 +23,7 @@ namespace TBQuestGame.Models
         private bool _accessible;
         private int _requiredExperiencePoints;
         private int _requiredKeyId;
+        private int _requiredTreasureId;
         private int _modifiyExperiencePoints;
         private int _modifyHealth;
         private int _modifyLives;
@@ -33,6 +34,8 @@ namespace TBQuestGame.Models
         #endregion
 
         #region PROPERTIES
+
+
 
         public string Name
         {
@@ -76,6 +79,12 @@ namespace TBQuestGame.Models
             set { _requiredKeyId = value; }
         }
 
+        public int RequiredTreasureId
+        {
+            get { return _requiredTreasureId; }
+            set { _requiredTreasureId = value; }
+        }
+
         public int ModifyHealth
         {
             get { return _modifyHealth; }
@@ -93,6 +102,13 @@ namespace TBQuestGame.Models
             get { return _message; }
             set { _message = value; }
         }
+
+        //A second visit message 
+        //public string SecondMessage
+        //{
+        //  get { return _secondmessage; }
+        // set { _secondmessage = value; }
+        //}
 
         public ObservableCollection<GameItemQuantity> GameItems
         {
@@ -118,6 +134,17 @@ namespace TBQuestGame.Models
         #endregion
 
         #region METHODS
+
+        //public void HasVisited()
+        //{
+        //     bool hasVisited = false;
+
+        //   if (hasVisited = true)
+        //   {
+        //       Message = SecondMessage;
+        //    }
+        // }
+
 
         public void UpdateLocationGameItems()
         {

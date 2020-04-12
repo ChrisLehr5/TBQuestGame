@@ -11,8 +11,8 @@ namespace TBQuestGame.Models
         public int MinimumDamage { get; set; }
         public int MaximumDamage { get; set; }
 
-        public Weapon(int id, string name, int value, int minDamage, int maxDamage, string description, int experiencePoints)
-            : base(id, name, value, description, experiencePoints)
+        public Weapon(int id, string name, int value, int minDamage, int maxDamage, string description, int experiencePoints, string useMessage, string inspect)
+            : base(id, name, value, description, experiencePoints, useMessage, inspect)
         {
             MinimumDamage = minDamage;
             MaximumDamage = maxDamage;

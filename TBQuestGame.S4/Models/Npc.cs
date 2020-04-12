@@ -8,6 +8,7 @@ namespace TBQuestGame.Models
 {
     public abstract class Npc : Character
     {
+
         public string Description { get; set; }
         public string Information
         {

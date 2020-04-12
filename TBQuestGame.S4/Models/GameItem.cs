@@ -14,6 +14,7 @@ namespace TBQuestGame.Models
         public string Description { get; set; }
         public int ExperiencePoints { get; set; }
         public string UseMessage { get; set; }
+        public string Inspect { get; set; }
 
         public string Information
         {
@@ -22,15 +23,15 @@ namespace TBQuestGame.Models
                 return InformationString();
             }
         }
-
-        public GameItem(int id, string name, int value, string description, int experiencePoints, string useMessage = "")
+        public GameItem(int id, string name, int value, string description, int experiencePoints, string useMessage = "", string inspect = "")
         {
             Id = id;
             Name = name;
             Value = value;
             Description = description;
-            ExperiencePoints = experiencePoints;
             UseMessage = useMessage;
+            Inspect = inspect;
+            ExperiencePoints = experiencePoints;
         }
 
         public virtual string InformationString()

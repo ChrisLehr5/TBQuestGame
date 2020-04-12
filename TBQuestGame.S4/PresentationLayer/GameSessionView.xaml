@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TBQuestGame.PresentationLayer"
         mc:Ignorable="d"
         Background="Gray"
-        Width="900"
+        Width="1000"
         Height="600"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
@@ -382,7 +382,7 @@
                             Width="auto"
                             Margin="10">
 
-                            <TabItem Header="Relics"
+                            <TabItem Header="Keys"
                                 x:Name="RelicsTabItem">
                                 <DataGrid 
                                     x:Name="KeysDataGrid"
@@ -503,6 +503,10 @@
                                 Content="Use" 
                                 Style="{StaticResource MainPanelButtonStyle}" 
                                 Click="UseButton_Click"/>
+                            <Button 
+                                Content="Inspect Item" 
+                                Style="{StaticResource MainPanelButtonStyle}" 
+                                Click="InspectButton_Click"/>
                         </StackPanel>
 
                     </StackPanel>

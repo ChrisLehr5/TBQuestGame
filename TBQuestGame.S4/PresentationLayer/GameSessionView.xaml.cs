@@ -136,5 +136,12 @@ namespace TBQuestGame.PresentationLayer
             _gameSessionViewModel.HelpWindow();
         }
 
+        private void InspectButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (PlayerDataTabControl.SelectedItem != null)
+            {
+                _gameSessionViewModel.InspectTheItem();
+            }
+        }
     }
 }

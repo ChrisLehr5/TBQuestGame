@@ -11,8 +11,8 @@ namespace TBQuestGame.Models
         public int HealthChange { get; set; }
         public int LivesChange { get; set; }
 
-        public Potion(int id, string name, int value, int healthChange, int livesChange, string description, int experiencePoints)
-            : base(id, name, value, description, experiencePoints)
+        public Potion(int id, string name, int value, int healthChange, int livesChange, string description, int experiencePoints, string useMessage, string inspect)
+            : base(id, name, value, description, experiencePoints, useMessage, inspect)
         {
             HealthChange = healthChange;
             LivesChange = livesChange;

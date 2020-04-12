@@ -446,6 +446,7 @@ namespace TBQuestGame.PresentationLayer
             timer.Start();
         }
 
+
         /// <summary>
         /// game timer event handler
         /// 1) update mission time on window
@@ -542,15 +543,26 @@ namespace TBQuestGame.PresentationLayer
                 case Key key:
                     ProcessKeyUse(key);
                     break;
+                case Treasure treasure:
+                    ProcessTreasureUse(treasure);
+                    break;
                 default:
                     break;
             }
         }
 
+        public void InspectTheItem()
+        {
+            string message;
+
+            message = CurrentGameItem.GameItem.Inspect;
+            CurrentLocationInformation = message;
+        }
+
         /// <summary>
-        /// process the effects of using the relic
+        /// process the effects of using the key
         /// </summary>
-        /// <param name="potion">potion</param>
+        /// <param name="key">key</param>
         private void ProcessKeyUse(Key key)
         {
             string message;
@@ -570,14 +582,39 @@ namespace TBQuestGame.PresentationLayer
         }
 
         /// <summary>
+        /// process the effects of using the treasure
+        /// </summary>
+        /// <param name="treasure">treasure</param>
+        private void ProcessTreasureUse(Treasure treasure)
+        {
+            string message;
+
+            switch (treasure.UseAction)
+            {
+                case Treasure.UseActionType.OPENLOCATION:
+                    message = _gameMap.OpenLocationsByTreasure(treasure.Id);
+                    CurrentLocationInformation = treasure.UseMessage;
+                    break;
+                case Treasure.UseActionType.KILLPLAYER:
+                    OnPlayerDies(treasure.UseMessage);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        /// <summary>
         /// process the effects of using the potion
         /// </summary>
         /// <param name="potion">potion</param>
         private void ProcessPotionUse(Potion potion)
         {
+
+            CurrentLocationInformation = potion.UseMessage;
             _player.Health += potion.HealthChange;
             _player.Lives += potion.LivesChange;
             _player.RemoveGameItemQuantityFromInventory(_currentGameItem);
+
         }
 
         /// <summary>
@@ -587,7 +624,7 @@ namespace TBQuestGame.PresentationLayer
         private void OnPlayerDies(string message)
         {
             string messagetext = message +
-                "\n\nWould you like to play again?";
+                "Better luck next time!";
 
             string titleText = "Death";
             MessageBoxButton button = MessageBoxButton.YesNo;
@@ -741,7 +778,8 @@ namespace TBQuestGame.PresentationLayer
                 }
                 else
                 {
-                    battleInformation = $"It appears you are entering into battle with {_currentNpc.Name} who has no weapon." + Environment.NewLine;
+                    battleInformation = $"It appears you are entering into battle with {_currentNpc.Name} who has no weapon. That isn't very sporting." + Environment.NewLine;
+                    _player.Lives--;
                 }
 
                 //
@@ -758,11 +796,13 @@ namespace TBQuestGame.PresentationLayer
                 {
                     battleInformation += $"You have slain {_currentNpc.Name}.";
                     _currentLocation.Npcs.Remove(_currentNpc);
+                    _player.ExperiencePoints += 10;
                 }
                 else
                 {
                     battleInformation += $"You have been slain by {_currentNpc.Name}.";
                     _player.Lives--;
+                    _player.ExperiencePoints -= 10;
                 }
 
                 CurrentLocationInformation = battleInformation;

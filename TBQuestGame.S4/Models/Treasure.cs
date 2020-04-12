@@ -10,19 +10,19 @@ namespace TBQuestGame.Models
     public class Treasure : GameItem
     {
 
-        public enum TreasureType
+        public enum UseActionType
         {
-            Necklace,
-            Mirror,
-            Whistle
+            OPENLOCATION,
+            KILLPLAYER
         }
 
-        public TreasureType Type { get; set; }
+        public UseActionType UseAction { get; set; }
 
-        public Treasure(int id, string name, int value, TreasureType type, string description, int experiencePoints)
-            : base(id, name, value, description, experiencePoints)
+        public Treasure(int id, string name, int value, string description, int experiencePoints, string useMessage, string inspect, UseActionType useAction)
+             : base(id, name, value, description, experiencePoints, useMessage, inspect)
         {
-            Type = type;
+            //Type = type;
+            UseAction = useAction;
         }
 
         public override string InformationString()
@@ -31,3 +31,5 @@ namespace TBQuestGame.Models
         }
     }
 }
+
+

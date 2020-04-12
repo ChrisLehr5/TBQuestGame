@@ -9,6 +9,7 @@ namespace TBQuestGame.Models
 {
     public class Key : GameItem
     {
+
         public enum UseActionType
         {
             OPENLOCATION,
@@ -17,8 +18,8 @@ namespace TBQuestGame.Models
 
         public UseActionType UseAction { get; set; }
 
-        public Key(int id, string name, int value, string description, int experiencePoints, string useMessage, UseActionType useAction)
-            : base(id, name, value, description, experiencePoints, useMessage)
+        public Key(int id, string name, int value, string description, int experiencePoints, string useMessage, string inspect, UseActionType useAction)
+            : base(id, name, value, description, experiencePoints, useMessage, inspect)
         {
             UseAction = useAction;
         }

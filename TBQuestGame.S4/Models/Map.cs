@@ -16,9 +16,10 @@ namespace TBQuestGame.Models
         private GameMapCoordinates _currentLocationCoordinates;
         private List<GameItem> _standardGameItems;
 
+
         #endregion
 
-        #region PROPERTIES
+        #region PROPERTIES      
 
 
         public Location[,] MapLocations
@@ -75,6 +76,27 @@ namespace TBQuestGame.Models
                     mapLocation = _mapLocations[row, column];
 
                     if (mapLocation != null && mapLocation.RequiredKeyId == keyId)
+                    {
+                        mapLocation.Accessible = true;
+                        message = $"{mapLocation.Name} is now accessible.";
+                    }
+                }
+            }
+            return message;
+        }
+
+        public string OpenLocationsByTreasure(int treasureId)
+        {
+            string message = "The key did nothing.";
+            Location mapLocation = new Location();
+
+            for (int row = 0; row < _maxRows; row++)
+            {
+                for (int column = 0; column < _maxColumns; column++)
+                {
+                    mapLocation = _mapLocations[row, column];
+
+                    if (mapLocation != null && mapLocation.RequiredTreasureId == treasureId)
                     {
                         mapLocation.Accessible = true;
                         message = $"{mapLocation.Name} is now accessible.";

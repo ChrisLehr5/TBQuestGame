@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TBQuestGame.PresentationLayer"
         mc:Ignorable="d"        
-        Background="Teal"
+        Background="Gray"
         Width="400"
         Height="400"
         WindowStyle="SingleBorderWindow">
