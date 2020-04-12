@@ -1,0 +1,56 @@
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.exe.config
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.exe
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.pdb
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\GameSessionView.g.cs
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\HelpWindow.g.cs
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\PlayerSetupView.g.cs
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\App.g.cs
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame_MarkupCompile.cache
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame_MarkupCompile.lref
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\GameSessionView.baml
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\HelpWindow.baml
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\PlayerSetupView.baml
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.g.resources
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.Properties.Resources.resources
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csproj.GenerateResource.cache
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csproj.CoreCompileInputs.cache
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.exe
+C:\Users\Khyr\Desktop\S3 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.pdb
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csprojAssemblyReference.cache
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\GameSessionView.g.cs
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\HelpWindow.g.cs
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\PlayerSetupView.g.cs
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\App.g.cs
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame_MarkupCompile.cache
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame_MarkupCompile.lref
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.exe
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.pdb
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.exe.config
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.exe
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.pdb
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\GameSessionView.baml
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\HelpWindow.baml
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\PlayerSetupView.baml
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.g.resources
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.Properties.Resources.resources
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csproj.GenerateResource.cache
+C:\Users\Khyr\Desktop\S4\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csproj.CoreCompileInputs.cache
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.exe.config
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.exe
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\bin\Debug\TBQuestGame.pdb
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csprojAssemblyReference.cache
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\GameSessionView.g.cs
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\HelpWindow.g.cs
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\PlayerSetupView.g.cs
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\App.g.cs
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame_MarkupCompile.cache
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame_MarkupCompile.lref
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\GameSessionView.baml
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\HelpWindow.baml
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\PresentationLayer\PlayerSetupView.baml
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.g.resources
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.Properties.Resources.resources
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csproj.GenerateResource.cache
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.S4.csproj.CoreCompileInputs.cache
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.exe
+C:\Users\Khyr\Desktop\S4 - Copy\TBQuestGame\TBQuestGame.S4\obj\Debug\TBQuestGame.pdb
