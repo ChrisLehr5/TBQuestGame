@@ -14,6 +14,7 @@ namespace TBQuestGame.Models
         #region ENUMS
 
         public enum PlayThroughDifficulty { Casual, Normal, Difficult }
+        public enum PlayerSkillLevel { Novice, Normal, Expert }
 
         #endregion
 
@@ -29,6 +30,7 @@ namespace TBQuestGame.Models
         private Weapon _currentWeapon;
         private BattleModeName _battleMode;
         private PlayThroughDifficulty _playStyle;
+        private PlayerSkillLevel _playerSkill;
         private List<Location> _locationsVisited;
         private List<Npc> _npcsEngaged;
 

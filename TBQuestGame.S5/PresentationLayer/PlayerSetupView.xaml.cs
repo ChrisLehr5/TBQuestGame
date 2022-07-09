@@ -41,7 +41,7 @@ namespace TBQuestGame.PresentationLayer
 
             List<string> traits = Enum.GetNames(typeof(Player.TraitType)).ToList();
             List<string> jobTitles = Enum.GetNames(typeof(Player.PlayThroughDifficulty)).ToList();
-            List<string> skills = Enum.GetNames(typeof(Player.SkillLevel)).ToList();
+            List<string> skills = Enum.GetNames(typeof(Player.PlayerSkill)).ToList();
             JobTitleComboBox.ItemsSource = jobTitles;
             TraitComboBox.ItemsSource = traits;
             SkillComboBox.ItemsSource = skills;
@@ -89,7 +89,7 @@ namespace TBQuestGame.PresentationLayer
                 //get values from combo boxes 
                 Enum.TryParse(JobTitleComboBox.SelectionBoxItem.ToString(), out Player.PlayThroughDifficulty playStyle);
                 Enum.TryParse(TraitComboBox.SelectionBoxItem.ToString(), out Player.TraitType trait);
-                Enum.TryParse(TraitComboBox.SelectionBoxItem.ToString(), out Player.SkillLevel skill);
+                Enum.TryParse(TraitComboBox.SelectionBoxItem.ToString(), out Player.PlayerSkill skill);
 
                 //player properties 
                 _player.PlayStyle = playStyle;

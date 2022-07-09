@@ -33,7 +33,7 @@ namespace TBQuestGame.Models
             int id,
             string name,
             TraitType trait,
-            SkillLevel skill,
+            PlayerSkill skill,
             string description,
             List<string> messages,
             int skillLevel,

@@ -27,7 +27,7 @@ namespace TBQuestGame.Models
 
         }
 
-        public Npc(int id, string name, TraitType trait, SkillLevel skill, string description)
+        public Npc(int id, string name, TraitType trait, PlayerSkill skill, string description)
             : base(id, name, trait, skill)
         {
             Id = id;

@@ -18,7 +18,7 @@ namespace TBQuestGame.Models
             Wisdom
         }
 
-        public enum SkillLevel
+        public enum PlayerSkill
         {
             Novice,
             Normal,
@@ -40,7 +40,7 @@ namespace TBQuestGame.Models
         protected int _level;
         protected TraitType _trait;
         protected TraitType _strength;
-        protected SkillLevel _skill;
+        protected PlayerSkill _skill;
 
 
         #endregion
@@ -78,7 +78,7 @@ namespace TBQuestGame.Models
             set { _trait = value; }
         }
 
-        public SkillLevel Skill
+        public PlayerSkill Skill
         {
             get { return _skill; }
             set { _skill = value; }   
@@ -92,7 +92,7 @@ namespace TBQuestGame.Models
 
         }
 
-        public Character(int id, string name, TraitType trait, SkillLevel skill)
+        public Character(int id, string name, TraitType trait, PlayerSkill skill)
         {
             _name = name;
             _trait = trait;

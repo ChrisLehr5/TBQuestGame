@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:TBQuestGame.PresentationLayer"
         mc:Ignorable="d"
         Background="Gray"
-        Width="1000"
+        Width="1500"
         Height="800"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
@@ -133,7 +133,7 @@
                             Click="MissionStatus_Click"/>
                         </StackPanel>
                         <Label 
-                            Content="Current Location" 
+                            Content="~~Current Location~~" 
                             HorizontalAlignment="Center"
                             Style="{StaticResource MainPanelLabelStyle}"/>
                         <TextBox
@@ -143,8 +143,18 @@
                             Style="{StaticResource MainPanelTextBoxStyle}"
                             HorizontalContentAlignment="Center"
                             Background="WhiteSmoke"/>
+                        <Label Content="~~Currently Holding~~"
+                               HorizontalAlignment="Center"
+                               Style="{StaticResource MainPanelLabelStyle}" />                        
+                        <TextBox Width="175"
+                                 Margin="10"
+                                 Text="{Binding CurrentGameItem.GameItem.Name}"
+                                 Style="{StaticResource MainPanelTextBoxStyle}"
+                                 HorizontalContentAlignment="Center"
+                                 Background="WhiteSmoke" />                  
 
-                        <Label                            
+                        <Label     
+                            Content=" ~~Navigaton~~"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center"
                             Style="{StaticResource MainPanelLabelStyle}"/>
@@ -208,9 +218,26 @@
                                     Visibility="{Binding HasWestLocation, Converter={StaticResource BooleanToVisibility}}"
                                     Style="{StaticResource MainPanelTextBoxStyle}"/>
                         </StackPanel>
-                        <StackPanel
-                            Orientation="Vertical"
-                            Height="50"  />
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="10">
+                            <Button Content="Pick Up"
+                                    Style="{StaticResource MainPanelButtonStyle}"
+                                    Click="PickUpButton_Click" />
+                            <Button Content="Put Down"
+                                    Style="{StaticResource MainPanelButtonStyle}"
+                                    Click="PutDownButton_Click" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="10">
+                            <Button Content="Use"
+                                    Style="{StaticResource MainPanelButtonStyle}"
+                                    Click="UseButton_Click" />
+                            <Button Content="Inspect Item"
+                                    Style="{StaticResource MainPanelButtonStyle}"
+                                    Click="InspectButton_Click" />
+                        </StackPanel>
+                        <StackPanel Orientation="Vertical"
+                                    Height="10" />
                         <StackPanel
                             Orientation="Vertical"
                             Height="100"  >
@@ -262,7 +289,7 @@
                                 HorizontalAlignment="Center"
                                 Margin="0">
                                 <Label 
-                                        Content="Current Location Information" 
+                                        Content="~~Location Information~~" 
                                         HorizontalAlignment="Center"
                                         Style="{StaticResource MainPanelLabelStyle}"/>
                                 <Border
@@ -272,7 +299,7 @@
                                     Background="WhiteSmoke"
                                     Style="{StaticResource BorderStyle}">
                                     <TextBox
-                                        Height="100"
+                                        Height="500"
                                         Width="350"
                                         Margin="10"
                                         Background="WhiteSmoke"
@@ -283,65 +310,9 @@
                                         VerticalContentAlignment="top"
                                         Style="{StaticResource MainPanelTextBoxStyle}"/>
                                 </Border>
-
-                                <TabControl 
-                                    x:Name="LocationInfoTabControl"
-                                    Width="350">
-                                    <TabItem Header="Items"
-                                        x:Name="ItemsInfoTabItem">
-                                        <DataGrid 
-                                            x:Name="LocationItemsDataGrid"
-                                            Height="150"
-                                            ItemsSource="{Binding CurrentLocation.GameItems}" 
-                                            SelectedItem="{Binding CurrentGameItem}"
-                                            AutoGenerateColumns="False"
-                                            HeadersVisibility="Column">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn 
-                                                    Header="Description" 
-                                                    IsReadOnly="True"                 
-                                                    Binding="{Binding GameItem.Information, Mode=OneWay}"
-                                                    Width="*">
-                                                    <DataGridTextColumn.ElementStyle>
-                                                        <Style>
-                                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                                        </Style>
-                                                    </DataGridTextColumn.ElementStyle>
-                                                </DataGridTextColumn>
-                                                <DataGridTextColumn 
-                                                    Header="Qty"
-                                                    IsReadOnly="True"
-                                                    Width="Auto"
-                                                    Binding="{Binding Quantity, Mode=OneWay}"/>
-                                            </DataGrid.Columns>
-                                        </DataGrid>
-                                    </TabItem>
-                                    <TabItem Header="NPCs"
-                                        x:Name="NpcsInfoTabItem">
-                                        <DataGrid 
-                                            x:Name="LocationNpcsDataGrid"
-                                            Height="150"
-                                            ItemsSource="{Binding CurrentLocation.Npcs}" 
-                                            SelectedItem="{Binding CurrentNpc}"
-                                            AutoGenerateColumns="False"
-                                            HeadersVisibility="Column">
-                                            <DataGrid.Columns>
-                                                <DataGridTextColumn 
-                                                    Header="Description" 
-                                                    IsReadOnly="True"                 
-                                                    Binding="{Binding Information, Mode=OneWay}"
-                                                    Width="*">
-                                                    <DataGridTextColumn.ElementStyle>
-                                                        <Style>
-                                                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
-                                                        </Style>
-                                                    </DataGridTextColumn.ElementStyle>
-                                                </DataGridTextColumn>
-                                            </DataGrid.Columns>
-                                        </DataGrid>
-                                    </TabItem>
-
-                                </TabControl>
+                                <StackPanel Orientation="Vertical"
+                                            Height="15">
+                                </StackPanel>                                
                             </StackPanel>
                         </StackPanel>
                         <StackPanel
@@ -353,7 +324,7 @@
                                 Click="SpeakToButton_Click"/>
                             <StackPanel
                                 Orientation="Horizontal"
-                                Margin="5">
+                                Margin="30">
                                 <Button
                                 Content="Attack" 
                                 Style="{StaticResource MainPanelButtonStyle}" 
@@ -379,8 +350,62 @@
                     Style="{StaticResource BorderStyle}">
                     <StackPanel
                         Orientation="Vertical">
+
+                        <TabControl x:Name="LocationInfoTabControl"
+                                    Width="350">
+                            <TabItem Header="Items"
+                                     x:Name="ItemsInfoTabItem">
+                                <DataGrid x:Name="LocationItemsDataGrid"
+                                          Height="150"
+                                          ItemsSource="{Binding CurrentLocation.GameItems}"
+                                          SelectedItem="{Binding CurrentGameItem}"
+                                          AutoGenerateColumns="False"
+                                          HeadersVisibility="Column">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Description"
+                                                            IsReadOnly="True"
+                                                            Binding="{Binding GameItem.Information, Mode=OneWay}"
+                                                            Width="*">
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style>
+                                                    <Setter Property="TextBlock.TextWrapping"
+                                                            Value="Wrap" />
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTextColumn Header="Qty"
+                                                            IsReadOnly="True"
+                                                            Width="Auto"
+                                                            Binding="{Binding Quantity, Mode=OneWay}" />
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </TabItem>
+                            <TabItem Header="NPCs"
+                                     x:Name="NpcsInfoTabItem">
+                                <DataGrid x:Name="LocationNpcsDataGrid"
+                                          Height="150"
+                                          ItemsSource="{Binding CurrentLocation.Npcs}"
+                                          SelectedItem="{Binding CurrentNpc}"
+                                          AutoGenerateColumns="False"
+                                          HeadersVisibility="Column">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Description"
+                                                            IsReadOnly="True"
+                                                            Binding="{Binding Information, Mode=OneWay}"
+                                                            Width="*">
+                                            <DataGridTextColumn.ElementStyle>
+                                                <Style>
+                                                    <Setter Property="TextBlock.TextWrapping"
+                                                            Value="Wrap" />
+                                                </Style>
+                                            </DataGridTextColumn.ElementStyle>
+                                        </DataGridTextColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                            </TabItem>
+                        </TabControl>
                         <Label 
-                        Content="Inventory"
+                        Content="~~Inventory~~"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Style="{StaticResource MainPanelLabelStyle}"/>
@@ -481,16 +506,11 @@
                                 </DataGrid>
                             </TabItem>
 
-                        </TabControl>
-                        <StackPanel
-                                Orientation="Horizontal"
-                                HorizontalAlignment="Center">
-                            <Label Content="Holding" Style="{StaticResource MainPanelLabelStyle}"/>
-                            <TextBox Text="{Binding CurrentGameItem.GameItem.Name}" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                        </TabControl>                        
+                        <StackPanel>
+                            
                         </StackPanel>
-                        <StackPanel
-                            Orientation="Vertical"
-                            Height="50"  />
+                        
                         <StackPanel
                            Orientation="Horizontal"
                            Margin="10">
