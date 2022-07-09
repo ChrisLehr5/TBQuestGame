@@ -88,6 +88,7 @@ namespace TBQuestGame.PresentationLayer
                 writer.WriteLine(textBox2.Text);
                 writer.WriteLine(textBox3.Text);
                 writer.WriteLine(textBox4.Text);
+                writer.WriteLine(textBox9.Text);
             }
             MessageBoxResult result = MessageBox.Show("The game has saved!");
         }
@@ -147,6 +148,11 @@ namespace TBQuestGame.PresentationLayer
         private void MissionStatus_Click(object sender, RoutedEventArgs e)
         {
             _gameSessionViewModel.OpenMissionStatusView();
+        }
+
+        private void textBox2_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

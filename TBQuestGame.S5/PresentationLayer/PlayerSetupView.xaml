@@ -7,7 +7,7 @@
         mc:Ignorable="d"        
         Background="Gray"
         Width="400"
-        Height="400"
+        Height="800"
         WindowStyle="SingleBorderWindow">
     <Window.Resources>
         <Style x:Key="BorderStyle" TargetType="Border">
@@ -122,7 +122,16 @@
                 Orientation="Horizontal"
                 HorizontalAlignment="Right">
                     <Label Content="Age" Style="{StaticResource MainPanelLabelStyle}"/>
-                    <TextBox Name="AgeTextBox" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                    <TextBox Name="AgeTextBox" Style="{StaticResource MainPanelTextBoxStyle}"
+                             TextChanged="AgeTextBox_TextChanged" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+                    <Label Content="Skill"
+                           Style="{StaticResource MainPanelLabelStyle}" />
+                    <ComboBox Name="SkillComboBox"
+                              SelectedIndex="0"
+                              Style="{StaticResource MainPanelComboBoxStyle}" />
                 </StackPanel>
                 <StackPanel
                 Orientation="Horizontal"

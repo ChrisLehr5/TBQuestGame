@@ -14,12 +14,21 @@ namespace TBQuestGame.Models
         {
             Charisma,
             Strength,
-            Perception
+            Perception,
+            Wisdom
+        }
+
+        public enum SkillLevel
+        {
+            Novice,
+            Normal,
+            Expert
         }
 
         public const TraitType perception = TraitType.Perception;
         public const TraitType charisma = TraitType.Charisma;
         public const TraitType strength = TraitType.Strength;
+        public const TraitType wisdom = TraitType.Wisdom;
 
         #endregion
 
@@ -31,6 +40,7 @@ namespace TBQuestGame.Models
         protected int _level;
         protected TraitType _trait;
         protected TraitType _strength;
+        protected SkillLevel _skill;
 
 
         #endregion
@@ -68,6 +78,11 @@ namespace TBQuestGame.Models
             set { _trait = value; }
         }
 
+        public SkillLevel Skill
+        {
+            get { return _skill; }
+            set { _skill = value; }   
+        }
         #endregion
 
         #region CONSTRUCTORS
@@ -77,10 +92,11 @@ namespace TBQuestGame.Models
 
         }
 
-        public Character(int id, string name, TraitType trait)
+        public Character(int id, string name, TraitType trait, SkillLevel skill)
         {
             _name = name;
             _trait = trait;
+            _skill = skill;
             // _locationId = locationId;
         }
 

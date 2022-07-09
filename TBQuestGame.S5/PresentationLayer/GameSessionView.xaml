@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Background="Gray"
         Width="1000"
-        Height="600"
+        Height="800"
         WindowStartupLocation="CenterScreen"
         WindowStyle="SingleBorderWindow">
     <Window.Resources>
@@ -550,8 +550,18 @@
                             <StackPanel
                                 Orientation="Horizontal"
                                 HorizontalAlignment="Left">
-                                <TextBox Text="{Binding Player.Trait}" IsReadOnly="True" Name="textBox2" Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                <TextBox Text="{Binding Player.Trait}" IsReadOnly="True" Name="textBox2" Style="{StaticResource MainPanelTextBoxStyle}"
+                                         TextChanged="textBox2_TextChanged" />
                                 <Label Content="Trait" Style="{StaticResource MainPanelLabelStyle}"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left">
+                                <TextBox Text="{Binding Player.Skill}"
+                                         IsReadOnly="True"
+                                         Name="textBox9"
+                                         Style="{StaticResource MainPanelTextBoxStyle}" />
+                                <Label Content="Skill Level"
+                                       Style="{StaticResource MainPanelLabelStyle}" />
                             </StackPanel>
                             <StackPanel
                                 Orientation="Horizontal"
