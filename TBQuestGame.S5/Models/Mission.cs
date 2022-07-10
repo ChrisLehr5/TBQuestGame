@@ -8,13 +8,15 @@ namespace TBQuestGame.Models
 {
     public class Mission
     {
+        #region ENUMS
         public enum MissionStatus
         {
             Unassigned,
             Incomplete,
             Complete
         }
-
+        #endregion
+        #region FIELDS
         private int _id;
         private string _name;
         private string _description;
@@ -23,7 +25,8 @@ namespace TBQuestGame.Models
         private int _experiencePoints;
         private int _lives;
 
-
+        #endregion
+        #region CONSTRUCTORS
         public int Id
         {
             get { return _id; }
@@ -65,7 +68,7 @@ namespace TBQuestGame.Models
             set { _lives = value; }
 
         }
-
+       
         public Mission()
         {
 
@@ -77,5 +80,6 @@ namespace TBQuestGame.Models
             _name = name;
             _status = status;
         }
+        #endregion
     }
 }
