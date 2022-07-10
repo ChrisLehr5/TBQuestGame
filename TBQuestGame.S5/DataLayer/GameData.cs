@@ -10,6 +10,7 @@ namespace TBQuestGame.DataLayer
 {
     public static class GameData
     {
+        #region LoadedPlayer
         public static Player PlayerData()
         {
             return new Player()
@@ -38,7 +39,8 @@ namespace TBQuestGame.DataLayer
                 }
             };
         }
-
+        #endregion
+        #region GameData
         public static GameItem GameItemById(int id)
         {
             return StandardGameItems().FirstOrDefault(i => i.Id == id);
@@ -70,7 +72,8 @@ namespace TBQuestGame.DataLayer
         {
             return new GameMapCoordinates() { Row = 0, Column = 0 };
         }
-
+        #endregion
+        #region MapLocations
         public static Map GameMap()
         {
             int rows = 5;
@@ -94,8 +97,7 @@ namespace TBQuestGame.DataLayer
                     new GameItemQuantity(GameItemById(4002), 1),
                 },
             };
-
-
+            
             gameMap.MapLocations[1, 0] = new Location()
             {
                 Id = 1,
@@ -242,6 +244,8 @@ namespace TBQuestGame.DataLayer
 
             return gameMap;
         }
+        #endregion
+        #region GameItems
         public static List<GameItem> StandardGameItems()
         {
             return new List<GameItem>()
@@ -263,7 +267,8 @@ namespace TBQuestGame.DataLayer
                 new Key(4004, "Stairwell Key", 5, "Ornate key.", 5,"You open the stairwell. What mysteries will upstairs hold?", "Looks like a grinning imp is carved into the key.", Key.UseActionType.PLAYERWIN)
             };
         }
-
+        #endregion
+        #region NpcList
         public static List<Npc> Npcs()
         {
             return new List<Npc>()
@@ -332,7 +337,8 @@ namespace TBQuestGame.DataLayer
             };
 
         }
-
+        #endregion
+        #region GameMissions
         public static List<Mission> Missions()
         {
             return new List<Mission>()
@@ -389,5 +395,6 @@ namespace TBQuestGame.DataLayer
             };
 
         }
+        #endregion
     }
 }
