@@ -16,8 +16,9 @@ namespace TBQuestGame.DataLayer
             {
                 Id = 1,
                 Name = "Violet",
-                Age = 13,
+                Age = 33,
                 PlayStyle = Player.PlayThroughDifficulty.Casual,
+                Skill = Character.PlayerSkill.Normal,
                 Trait = Character.TraitType.Charisma,
                 Health = 100,
                 Lives = 3,
@@ -83,8 +84,7 @@ namespace TBQuestGame.DataLayer
             {
                 Id = 1,
                 Name = "Street",
-                Description = "You exit the cab, taking a moment to stretch.  " +
-               "The trip from school was long and tedious, and you are happy to finally be home.",
+                Description = "hhhhhhhhhhhhhhh",
                 Accessible = true,
                 ModifiyExperiencePoints = 10,
                 Message = "",

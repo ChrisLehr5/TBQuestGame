@@ -33,12 +33,13 @@ namespace TBQuestGame.Models
             int id,
             string name,
             TraitType trait,
+            PlayerSkill skill,
             string description,
             List<string> messages,
             int skillLevel,
             Weapon currentWeapon,
             Weapon currentWeapons)
-            : base(id, name, trait, description)
+            : base(id, name, trait, skill, description)
         {
             Messages = messages;
             SkillLevel = skillLevel;

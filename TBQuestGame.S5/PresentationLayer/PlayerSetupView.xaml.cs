@@ -41,8 +41,12 @@ namespace TBQuestGame.PresentationLayer
 
             List<string> traits = Enum.GetNames(typeof(Player.TraitType)).ToList();
             List<string> jobTitles = Enum.GetNames(typeof(Player.PlayThroughDifficulty)).ToList();
+            List<string> skills = Enum.GetNames(typeof(Player.PlayerSkill)).ToList();
             JobTitleComboBox.ItemsSource = jobTitles;
             TraitComboBox.ItemsSource = traits;
+            SkillComboBox.ItemsSource = skills;
+            
+           
 
             //hide error message box
             ErrorMessageTextBlock.Visibility = Visibility.Hidden;
@@ -85,10 +89,12 @@ namespace TBQuestGame.PresentationLayer
                 //get values from combo boxes 
                 Enum.TryParse(JobTitleComboBox.SelectionBoxItem.ToString(), out Player.PlayThroughDifficulty playStyle);
                 Enum.TryParse(TraitComboBox.SelectionBoxItem.ToString(), out Player.TraitType trait);
+                Enum.TryParse(TraitComboBox.SelectionBoxItem.ToString(), out Player.PlayerSkill skill);
 
                 //player properties 
                 _player.PlayStyle = playStyle;
                 _player.Trait = trait;
+                _player.Skill = skill;
                 _player.Inventory = new ObservableCollection<GameItemQuantity>()
                 {
                     new GameItemQuantity(GameData.GameItemById(1002), 1),
@@ -118,6 +124,11 @@ namespace TBQuestGame.PresentationLayer
             AgeTextBox.Text = "";
             JobTitleComboBox.SelectedIndex = 0;
             TraitComboBox.SelectedIndex = 0;
+        }
+
+        private void AgeTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }
