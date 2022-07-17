@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Khyr\Source\Repos\TBQuestGame3\TBQuestGame.S5\obj\Debug\
+C:\Users\Khyr\source\repos\TBQuestGame3\TBQuestGame.S5\obj\Debug\
 TBQuestGame
 none
 false
 DEBUG;TRACE
-C:\Users\Khyr\Source\Repos\TBQuestGame3\TBQuestGame.S5\App.xaml
+C:\Users\Khyr\source\repos\TBQuestGame3\TBQuestGame.S5\App.xaml
 5-466985537
 
-35787945117
+341630304484
 13-1505183044
 MainWindow.xaml;PresentationLayer\GameSessionView.xaml;PresentationLayer\HelpWindow.xaml;PresentationLayer\MissionStatusView.xaml;PresentationLayer\PlayerSetupView.xaml;
 
-True
+False
 
