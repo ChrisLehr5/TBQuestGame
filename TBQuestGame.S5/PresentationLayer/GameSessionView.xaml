@@ -292,13 +292,14 @@
                             <RowDefinition Height="2*"/>
                             <RowDefinition Height="1*"/>
                         </Grid.RowDefinitions>
+                        <!--Current Location Information Stack Panel-->
                         <StackPanel
                             Grid.Row="0" 
-                            Orientation="Vertical">
+                            Orientation="Vertical">                         
                             <StackPanel
                                 Orientation="Vertical"
                                 HorizontalAlignment="Center"
-                                        Margin="52,0,51,0"
+                                        Margin="52,0,52,0"
                                         Height="400">
                                 <Label 
                                         Content="Current Location Information" 
@@ -317,8 +318,10 @@
                                     Padding="100"
                                     Background="WhiteSmoke"
                                     Style="{StaticResource BorderStyle}"> -->
-                                    <TextBox
-                                        Margin="0,50,0,5"
+                                
+                                <!--TextBox Stack Panel-->
+                                <TextBox 
+                                        Margin="0,0,0,0"
                                         Height="300"
                                         Width="600"                                        
                                         Background="WhiteSmoke"
@@ -329,77 +332,95 @@
                                         VerticalContentAlignment="top"
                                         Style="{StaticResource MainPanelTextBoxStyle}"/>
                                 <!---</Border>-->                                                           
-                            </StackPanel>
-                            
+                            </StackPanel>                            
                         </StackPanel>
-                        <StackPanel Grid.Row=" 1"
-                                    Orientation="Vertical"
-                                    Height="25">
-                            <Label Content=" ~~Navigaton~~"
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="1"
+                                    Grid.RowSpan="1"
+                                    Orientation="Vertical">
+                            <StackPanel
+                                Height="145">
+                            <Label Content="Locations Available"
                                    VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Style="{StaticResource MainPanelLabelStyle}" /><StackPanel
-                                Orientation="Horizontal"
-                                HorizontalAlignment="Left"
-                                Margin="0,5,10,0">
-                            <Button 
-                                    Width="50"
-                                    Content="North" 
-                                    Style="{StaticResource MainPanelButtonStyle}" 
-                                    Click="NorthTravelButton_Click"/>
-                            <TextBox
-                                    Width="125"
-                                    Text="{Binding NorthLocation.Name, Mode=OneWay}" 
-                                    Visibility="{Binding HasNorthLocation, Converter={StaticResource BooleanToVisibility}}"
-                                    Style="{StaticResource MainPanelTextBoxStyle}"/>
+                                   HorizontalAlignment="Left"
+                                   Style="{StaticResource MainPanelLabelStyle}" />
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,5,10,0">
+                                <Button Width="50"
+                                        Content="North"
+                                        Style="{StaticResource MainPanelButtonStyle}"
+                                        Click="NorthTravelButton_Click" />
+                                <TextBox Width="125"
+                                         Text="{Binding NorthLocation.Name, Mode=OneWay}"
+                                         Visibility="{Binding HasNorthLocation, Converter={StaticResource BooleanToVisibility}}"
+                                         Style="{StaticResource MainPanelTextBoxStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,5,10,0">
+                                <Button Width="50"
+                                        Content="East"
+                                        Style="{StaticResource MainPanelButtonStyle}"
+                                        Click="EastTravelButton_Click" />
+                                <TextBox Width="125"
+                                         Text="{Binding EastLocation.Name, Mode=OneWay}"
+                                         Visibility="{Binding HasEastLocation, Converter={StaticResource BooleanToVisibility}}"
+                                         Style="{StaticResource MainPanelTextBoxStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,5,10,0">
+                                <Button Width="50"
+                                        Content="South"
+                                        Style="{StaticResource MainPanelButtonStyle}"
+                                        Click="SouthTravelButton_Click" />
+                                <TextBox Width="125"
+                                         Text="{Binding SouthLocation.Name, Mode=OneWay}"
+                                         Visibility="{Binding HasSouthLocation, Converter={StaticResource BooleanToVisibility}}"
+                                         Style="{StaticResource MainPanelTextBoxStyle}" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Left"
+                                        Margin="0,5,10,0">
+                                <Button Width="50"
+                                        Content="West"
+                                        Style="{StaticResource MainPanelButtonStyle}"
+                                        Click="WestTravelButton_Click" />
+                                <TextBox Width="125"
+                                         Text="{Binding WestLocation.Name, Mode=OneWay}"
+                                         Visibility="{Binding HasWestLocation, Converter={StaticResource BooleanToVisibility}}"
+                                         Style="{StaticResource MainPanelTextBoxStyle}" />
+                            </StackPanel>
+                        </StackPanel>                         
                         </StackPanel>
-                        <StackPanel
-                                Orientation="Horizontal"
-                                HorizontalAlignment="Left"
-                                Margin="0,5,10,0">
-                            <Button 
-                                    Width="50"
-                                    Content="East" 
-                                    Style="{StaticResource MainPanelButtonStyle}" 
-                                    Click="EastTravelButton_Click"/>
-                            <TextBox
-                                    Width="125"
-                                    Text="{Binding EastLocation.Name, Mode=OneWay}" 
-                                    Visibility="{Binding HasEastLocation, Converter={StaticResource BooleanToVisibility}}"                                   
-                                    Style="{StaticResource MainPanelTextBoxStyle}"/>
-                        </StackPanel>
-                        <StackPanel
-                                Orientation="Horizontal"
-                                HorizontalAlignment="Left"
-                                Margin="0,5,10,0">
-                            <Button 
-                                    Width="50"
-                                    Content="South" 
-                                    Style="{StaticResource MainPanelButtonStyle}" 
-                                    Click="SouthTravelButton_Click"/>
-                            <TextBox
-                                    Width="125"
-                                    Text="{Binding SouthLocation.Name, Mode=OneWay}" 
-                                    Visibility="{Binding HasSouthLocation, Converter={StaticResource BooleanToVisibility}}"
-                                    Style="{StaticResource MainPanelTextBoxStyle}"/>
-                        </StackPanel>
-                        <StackPanel
-                                Orientation="Horizontal"
-                                HorizontalAlignment="Left"
-                                Margin="0,5,10,0">
-                            <Button 
-                                    Width="50"
-                                    Content="West" 
-                                    Style="{StaticResource MainPanelButtonStyle}" 
-                                    Click="WestTravelButton_Click"/>
-                            <TextBox
-                                    Width="125"
-                                    Text="{Binding WestLocation.Name, Mode=OneWay}" 
-                                    Visibility="{Binding HasWestLocation, Converter={StaticResource BooleanToVisibility}}"
-                                    Style="{StaticResource MainPanelTextBoxStyle}"/>
-                        </StackPanel>
-                        </StackPanel>
-
+                        <StackPanel Grid.Row="1"
+                                    Grid.Column="2"
+                                    Grid.RowSpan="1"
+                                    Orientation="Vertical">
+                            <StackPanel>
+                                <Button Content="Speak To"
+                                        Margin="0,5,10,0"
+                                        Style="{StaticResource MainPanelButtonStyle}"
+                                        Click="SpeakToButton_Click" />
+                                <Button Content="Attack"
+                                        Margin="0,5,10,0"
+                                         Style="{StaticResource MainPanelButtonStyle}"
+                                         Click="AttackButton_Click" />  
+                                <Button Content="Defend"
+                                        Margin="0,5,10,0"
+                                         Style="{StaticResource MainPanelButtonStyle}"
+                                         Click="DefendButton_Click" />    
+                                <Button Content="Retreat"
+                                        Margin="0,5,10,0"
+                                        Style="{StaticResource MainPanelButtonStyle}"
+                                        Click="RetreatButton_Click" />
+                                <StackPanel>
+                                
+                                </StackPanel>
+                                
+                            </StackPanel>
+                            </StackPanel>                        
                     </Grid>
                 </Border>
                 <Border
