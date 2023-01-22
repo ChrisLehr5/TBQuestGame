@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.ObjectModel;
+using System.Windows.Controls;
 
 namespace TBQuestGame.Models
 {
@@ -28,6 +29,8 @@ namespace TBQuestGame.Models
         private int _modifyHealth;
         private int _modifyLives;
         private string _message;
+        //adding images
+        private Image _imageOpenClose;
         private ObservableCollection<GameItemQuantity> _gameItems;
         private ObservableCollection<Npc> _npcs;
 
@@ -48,6 +51,7 @@ namespace TBQuestGame.Models
             get { return _id; }
             set { _id = value; }
         }
+
 
         public string Description
         {
@@ -102,6 +106,13 @@ namespace TBQuestGame.Models
         {
             get { return _message; }
             set { _message = value; }
+        }
+
+        //adding images
+        public Image ImageOpenClose
+        {
+            get { return _imageOpenClose; }
+            set { _imageOpenClose = value; }
         }
 
         public ObservableCollection<GameItemQuantity> GameItems

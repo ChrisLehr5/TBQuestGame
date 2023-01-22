@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TBQuestGame.PresentationLayer"
         mc:Ignorable="d"
-        Background="Gray"
+        Background="DarkCyan"
         Width="1500"
         Height="1000"
         WindowStartupLocation="CenterScreen"
@@ -44,9 +44,11 @@
         <Style x:Key="MainPanelLabelStyleBold"
                TargetType="Label">
             <Setter Property="Foreground"
-                    Value="White" />
+                    Value="Black" />
             <Setter Property="FontFamily"
                     Value="Lucida Sans" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
             <Setter Property="FontSize"
                     Value="25" />
         </Style>
@@ -81,6 +83,55 @@
                                                   HorizontalAlignment="Center"
                                                   Content="{TemplateBinding  Content}"
                                                   TextBlock.Foreground="Black" />
+                            </DockPanel>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <SolidColorBrush Color="LightSteelBlue" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="MainPanelButtonStyleBold"
+               TargetType="Button">
+            <Setter Property="Margin"
+                    Value="10,0,10,0" />
+            <Setter Property="Width"
+                    Value="75" />
+            <Setter Property="Height"
+                    Value="20" />
+            <Setter Property="Background"
+                    Value="DarkRed" />
+            <Setter Property="Foreground"
+                    Value="MidnightBlue" />
+            <Setter Property="FontStyle"
+                    Value="Italic" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid Width="{TemplateBinding Width}"
+                              Height="{TemplateBinding Height}"
+                              ClipToBounds="True">
+                            <Rectangle x:Name="innerRectangle"
+                                       HorizontalAlignment="Stretch"
+                                       VerticalAlignment="Stretch"
+                                       Fill="{TemplateBinding Background}"
+                                       RadiusX="5"
+                                       RadiusY="5" />
+                            <!-- Present Content (text) of the button. -->
+                            <DockPanel Name="myContentPresenterDockPanel">
+                                <ContentPresenter x:Name="myContentPresenter"
+                                                  Margin="2"
+                                                  HorizontalAlignment="Center"
+                                                  Content="{TemplateBinding  Content}"
+                                                  TextBlock.Foreground="White" />
                             </DockPanel>
                         </Grid>
                     </ControlTemplate>
@@ -144,7 +195,7 @@
                         Margin="0,0,0,10"
                         Style="{StaticResource BorderStyle}">
                     
-                    <StackPanel>
+                    <StackPanel>                      
                         <!--
                         <Label Content="{Binding MissionTimeDisplay}"
                                HorizontalAlignment="Center"
@@ -394,8 +445,19 @@
                                     Style="{StaticResource MainPanelButtonStyle}"
                                     Click="InspectButton_Click" />
                         </StackPanel>
-                    </StackPanel>
-                </Border>
+
+                        <TextBox Margin="0,0,0,0"
+                                 Height="100"
+                                 Width="350"
+                                 Background="WhiteSmoke"
+                                 BorderThickness="0"
+                                 TextWrapping="Wrap"
+                                 Text="{Binding CurrentItemInformation, Mode=OneWay}"
+                                 VerticalScrollBarVisibility="Auto"
+                                 VerticalContentAlignment="top"
+                                 Style="{StaticResource MainPanelTextBoxStyle}" />
+                    </StackPanel>                    
+                </Border>                
                 <Border Grid.Row="0"
                         Grid.Column="1"
                         Margin="10,0,10,10"
@@ -431,7 +493,7 @@
 
                                 <!--TextBox Stack Panel-->
                                 <TextBox Margin="0,0,0,0"
-                                         Height="300"
+                                         Height="100"
                                          Width="600"
                                          Background="WhiteSmoke"
                                          BorderThickness="0"
@@ -441,17 +503,26 @@
                                          VerticalContentAlignment="top"
                                          Style="{StaticResource MainPanelTextBoxStyle}" />
                                 <!---</Border>-->
+                                <StackPanel Margin="15,15,15,15">
+                                    <Image Width="400"
+                                           Height="200"
+                                           Name="imageOpenClose"
+                                           Source="{Binding ImageOpenClose}"  
+                                            />
+                                </StackPanel>
                             </StackPanel>
+                          
                         </StackPanel>
+                        <!--Movement Options-->
                         <StackPanel Grid.Row="1"
                                     Grid.Column="1"
                                     Grid.RowSpan="1"
                                     Orientation="Vertical">
                             <StackPanel Height="145">
-                                <Label Content="Locations Available"
+                                <Label Content="Move To Locations Available:"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Left"
-                                       Style="{StaticResource MainPanelLabelStyle}" />
+                                       Style="{StaticResource MainPanelLabelStyleBold}" />
                                 <StackPanel Orientation="Horizontal"
                                             HorizontalAlignment="Left"
                                             Margin="0,5,10,0">
@@ -499,44 +570,26 @@
                                              Text="{Binding WestLocation.Name, Mode=OneWay}"
                                              Visibility="{Binding HasWestLocation, Converter={StaticResource BooleanToVisibility}}"
                                              Style="{StaticResource MainPanelTextBoxStyle}" />
-                                </StackPanel>
+                                </StackPanel>                               
                             </StackPanel>
-                        </StackPanel>
-                        <StackPanel Grid.Row="1"
-                                    Grid.Column="2"
-                                    Grid.RowSpan="1"
-                                    Orientation="Vertical">
-                            <Image x:Name="ImageViewer1"
-                                   Height="100"
-                                   Width="100"
-                                   Margin="302,10,301,0" />
-                            <StackPanel Margin="288,10,301,0">
-                                <Button Content="Speak To"
-                                        Margin="0,5,10,0"
-                                        Style="{StaticResource MainPanelButtonStyle}"
-                                        Click="SpeakToButton_Click" />
-                                <Button Content="Attack"
-                                        Margin="0,5,10,0"
-                                        Style="{StaticResource MainPanelButtonStyle}"
-                                        Click="AttackButton_Click" />
-                                <Button Content="Defend"
-                                        Margin="0,5,10,0"
-                                        Style="{StaticResource MainPanelButtonStyle}"
-                                        Click="DefendButton_Click" />
-                                <Button Content="Retreat"
-                                        Margin="0,5,10,0"
-                                        Style="{StaticResource MainPanelButtonStyle}"
-                                        Click="RetreatButton_Click" />
-                            </StackPanel>                                                 
-                        </StackPanel>
+                           
+                        </StackPanel>                                                            
                     </Grid>
                 </Border>
+               
                 <Border Grid.Row="0"
                         Grid.Column="2"
                         Margin="0,0,0,10"
                         Style="{StaticResource BorderStyle}">
+                    <!--NPC Location & Available-->
                     <StackPanel Orientation="Vertical">
-
+                        <StackPanel Height="70"
+                                    Orientation="Vertical">
+                            <Label Content="NPC's Available"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Style="{StaticResource MainPanelLabelStyleBold}" />                                  
+                                    </StackPanel>
                         <TabControl x:Name="LocationInfoTabControl"
                                     Width="350">
                             <!--Disabled Item & NPC Combo-->
@@ -591,56 +644,88 @@
                                 </DataGrid>
                             </TabItem>
                         </TabControl>
-                       
-                        <StackPanel>
-
+                        <!--Character Choices-->
+                        <StackPanel Height="25">
                         </StackPanel>
+                            <StackPanel Grid.Row="1"
+                                        Grid.Column="2"
+                                        Orientation="Vertical">
+                                <StackPanel Height="145">
+                                    <Label Content="Choices Available:"
+                                           VerticalAlignment="Center"
+                                           HorizontalAlignment="Center"
+                                           Style="{StaticResource MainPanelLabelStyleBold}" />
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Left"
+                                                Margin="0,5,10,0">
+                                        <Button Content="Speak To"
+                                                Style="{StaticResource MainPanelButtonStyle}"
+                                                Click="SpeakToButton_Click" />
+                                        <TextBox Width="125"
+                                                 Text="{Binding NorthLocation.Name, Mode=OneWay}"
+                                                 Visibility="{Binding HasNorthLocation, Converter={StaticResource BooleanToVisibility}}"
+                                                 Style="{StaticResource MainPanelTextBoxStyle}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Left"
+                                                Margin="0,5,10,0">
+                                        <Button Content="Attack"
+                                                Style="{StaticResource MainPanelButtonStyle}"
+                                                Click="AttackButton_Click" />
+                                        <TextBox Width="125"
+                                                 Text="{Binding EastLocation.Name, Mode=OneWay}"
+                                                 Visibility="{Binding HasEastLocation, Converter={StaticResource BooleanToVisibility}}"
+                                                 Style="{StaticResource MainPanelTextBoxStyle}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Left"
+                                                Margin="0,5,10,0">
+                                        <Button Content="Defend"
+                                                Style="{StaticResource MainPanelButtonStyle}"
+                                                Click="DefendButton_Click" />
+                                        <TextBox Width="125"
+                                                 Text="{Binding SouthLocation.Name, Mode=OneWay}"
+                                                 Visibility="{Binding HasSouthLocation, Converter={StaticResource BooleanToVisibility}}"
+                                                 Style="{StaticResource MainPanelTextBoxStyle}" />
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal"
+                                                HorizontalAlignment="Left"
+                                                Margin="0,5,10,0">
+                                        <Button Content="Retreat"
+                                                Style="{StaticResource MainPanelButtonStyle}"
+                                                Click="RetreatButton_Click" />
+                                        <TextBox Width="125"
+                                                 Text="{Binding WestLocation.Name, Mode=OneWay}"
+                                                 Visibility="{Binding HasWestLocation, Converter={StaticResource BooleanToVisibility}}"
+                                                 Style="{StaticResource MainPanelTextBoxStyle}" />
+                                    </StackPanel>
+                                </StackPanel>
 
-                        
-
-                        <StackPanel Grid.Row="1"
-                                    Orientation="Horizontal">
-                            <Button Content="Speak To"
-                                    Style="{StaticResource MainPanelButtonStyle}"
-                                    Click="SpeakToButton_Click" />
-                            <StackPanel Orientation="Horizontal"
-                                        Margin="30">
-                                <Button Content="Attack"
-                                        Style="{StaticResource MainPanelButtonStyle}"
-                                        Click="AttackButton_Click" />
-                                <Button Margin="0,3,0,3"
-                                        Content="Defend"
-                                        Style="{StaticResource MainPanelButtonStyle}"
-                                        Click="DefendButton_Click" />
-                                <Button Content="Retreat"
-                                        Style="{StaticResource MainPanelButtonStyle}"
-                                        Click="RetreatButton_Click" />
-                            </StackPanel>
-                            <StackPanel Orientation="Vertical"
-                                        Height="10" />
-                            <StackPanel Orientation="Vertical"
-                                        Height="100">
+                            <StackPanel Height="125">
+                            </StackPanel>                               
                                 <StackPanel Orientation="Horizontal"
-                                            Margin="10">
-                                    <Button Content="Save Game"
-                                            Style="{StaticResource MainPanelButtonStyle}"
-                                            Click="SaveButton_Click" />
-                                    <Button Content="Quit Game"
-                                            Style="{StaticResource MainPanelButtonStyle}"
-                                            Click="QuitButton_Click" />
-                                </StackPanel>
-                                <StackPanel Orientation="Vertical"
-                                            Height="50">
-                                    <Button Content="About Game"
-                                            Style="{StaticResource MainPanelButtonStyle}"
-                                            Click="HelpButton_Click" />
+                                            HorizontalAlignment="Center"
+                                            Height="100">
+                                    <StackPanel Orientation="Horizontal"
+                                                Margin="10">
+                                        <Button Content="Save Game"
+                                                Style="{StaticResource MainPanelButtonStyleBold}"
+                                                Click="SaveButton_Click" />
+                                        <Button Content="Quit Game"
+                                                Style="{StaticResource MainPanelButtonStyleBold}"
+                                                Click="QuitButton_Click" />
+                                    </StackPanel>
+                                    <!--Deprecatiated About Game
+                                    <StackPanel Orientation="Vertical"
+                                                Height="50">
+                                        <Button Content="About Game"
+                                                Style="{StaticResource MainPanelButtonStyle}"
+                                                Click="HelpButton_Click" />
+                                    </StackPanel>
+                                    -->
                                 </StackPanel>
                             </StackPanel>
-
-                        </StackPanel>
-
-
-                    </StackPanel>
+                        </StackPanel>                   
                 </Border>
                 <Border Grid.Row="1"
                         Grid.ColumnSpan="3"
@@ -654,11 +739,11 @@
                         <StackPanel Grid.Column="0"
                                     Orientation="Vertical">
                             <StackPanel Orientation="Vertical"
-                                        Height="30">
+                                        Height="50">
                                 <Label Content="Character Information"
                                        VerticalAlignment="Center"
                                        HorizontalAlignment="Center"
-                                       Style="{StaticResource MainPanelLabelStyle}" />
+                                       Style="{StaticResource MainPanelLabelStyleBold}" />
                             </StackPanel>
                             <StackPanel Orientation="Horizontal"
                                         HorizontalAlignment="Left">
@@ -712,12 +797,12 @@
                             <Label Content="Log Book"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
-                                   Style="{StaticResource MainPanelLabelStyle}" />
+                                   Style="{StaticResource MainPanelLabelStyleBold}" />
                             <Border Margin="1"
                                     Padding="0"
                                     Background="WhiteSmoke"
                                     Style="{StaticResource BorderStyle}">
-                                <TextBox Height="70"
+                                <TextBox Height="175"
                                          Width="auto"
                                          Margin="10"
                                          Background="WhiteSmoke"

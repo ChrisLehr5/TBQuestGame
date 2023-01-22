@@ -38,6 +38,10 @@ namespace TBQuestGame.PresentationLayer
         private Location _currentLocation;
         private Location _northLocation, _eastLocation, _southLocation, _westLocation;
         private string _currentLocationInformation;
+        //moving item to own box
+        private string _currentItemInformation;
+        //adding image
+        private Image _imageOpenClose;
 
         private GameItemQuantity _currentGameItem;
         private Npc _currentNpc;
@@ -52,6 +56,17 @@ namespace TBQuestGame.PresentationLayer
         {
             get { return _player; }
             set { _player = value; }
+        }
+
+        //adding image
+        public Image ImageOpenClose
+        {
+            get { return _imageOpenClose; }
+            set
+            {
+                OnPropertyChanged(nameof(CurrentLocationInformation));
+            }
+
         }
 
         public string MessageDisplay
@@ -70,10 +85,12 @@ namespace TBQuestGame.PresentationLayer
             {
                 _currentLocation = value;
                 _currentLocationInformation = _currentLocation.Description;
+                _currentLocationInformation = _imageOpenClose;
                 OnPropertyChanged(nameof(CurrentLocation));
                 OnPropertyChanged(nameof(CurrentLocationInformation));
             }
         }
+              
 
         //
         // expose information about travel points from current location
@@ -133,6 +150,16 @@ namespace TBQuestGame.PresentationLayer
             }
         }
 
+        public string CurrentItemInformation
+        {
+            get { return _currentItemInformation; }
+            set
+            {
+                _currentItemInformation = value;
+                OnPropertyChanged(nameof(CurrentItemInformation));
+            }
+        }        
+
         public bool HasNorthLocation
         {
             get
@@ -183,7 +210,6 @@ namespace TBQuestGame.PresentationLayer
                 }
             }
         }
-
 
         public Npc CurrentNpc
         {
@@ -370,6 +396,8 @@ namespace TBQuestGame.PresentationLayer
                 // display a new message if available
                 //
                 OnPropertyChanged(nameof(MessageDisplay));
+                //adding images
+                OnPropertyChanged(nameof(ImageOpenClose));
             }
         }
 
@@ -738,7 +766,9 @@ namespace TBQuestGame.PresentationLayer
             string message;
 
             message = CurrentGameItem.GameItem.Inspect;
-            CurrentLocationInformation = message;
+            //moving the inspect to own text box 
+            //CurrentLocationInformation = message;
+            CurrentItemInformation = message;
         }
 
         /// <summary>
@@ -753,7 +783,7 @@ namespace TBQuestGame.PresentationLayer
             {
                 case Key.UseActionType.OPENLOCATION:
                     message = _gameMap.OpenLocationsByKey(key.Id);
-                    CurrentLocationInformation = key.UseMessage;
+                    CurrentItemInformation = key.UseMessage;
                     break;
                 case Key.UseActionType.KILLPLAYER:
                     OnPlayerDies(key.UseMessage);
@@ -863,7 +893,6 @@ namespace TBQuestGame.PresentationLayer
                 _player.UpdateMissionStatus();
             }
         }
-
 
         /// <summary>
         /// player chooses to exit game

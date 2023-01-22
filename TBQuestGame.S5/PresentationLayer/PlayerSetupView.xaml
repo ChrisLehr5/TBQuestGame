@@ -7,13 +7,24 @@
         mc:Ignorable="d"        
         Background="Gray"
         Width="400"
-        Height="800"
+        Height="400"
         WindowStyle="SingleBorderWindow">
     <Window.Resources>
         <Style x:Key="BorderStyle" TargetType="Border">
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="1"/>
             <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        <Style x:Key="MainPanelLabelStyleBold"
+               TargetType="Label">
+            <Setter Property="Foreground"
+                    Value="Black" />
+            <Setter Property="FontFamily"
+                    Value="Lucida Sans" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="FontSize"
+                    Value="25" />
         </Style>
         <Style x:Key="MainPanelLabelStyle" TargetType="Label">
             <Setter Property="Foreground" Value="White"/>
@@ -102,7 +113,7 @@
                     HorizontalAlignment="Center"
                     Margin="20"
                     FontSize="20"
-                    Style="{StaticResource MainPanelLabelStyle}"/>
+                    Style="{StaticResource MainPanelLabelStyleBold}"/>
                 <StackPanel
                 Orientation="Horizontal"
                 HorizontalAlignment="Right">

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TBQuestGame.Models;
+using System.Windows.Controls;
 
 namespace TBQuestGame.DataLayer
 {
@@ -97,7 +98,7 @@ namespace TBQuestGame.DataLayer
                     new GameItemQuantity(GameItemById(4002), 1),
                 },
             };
-            
+
             gameMap.MapLocations[1, 0] = new Location()
             {
                 Id = 1,
@@ -108,7 +109,8 @@ namespace TBQuestGame.DataLayer
                 Accessible = true,
                 Message = "You expected to be greeted at the gate..." +
                 " It's very unusual that nobody is in sight- leaving you the options of standing here wondering " +
-                "or going inside to see what is going on... "
+                "or going inside to see what is going on... ",
+                ImageOpenClose = Image.FromFile("Images/House.gif")
             };
 
             gameMap.MapLocations[1, 1] = new Location()
